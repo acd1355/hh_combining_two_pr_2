@@ -10,7 +10,21 @@ class GitCommand {
     }
 
     //Command: git status
-    // status(){}
+    status(){        
+        let keys = Object.keys(this.working_directory.new_changes);
+        let numChange = keys.length;
+        let strChange = `You have ${numChange} change/s.\n`
+
+        for(let i = 0; i < numChange; i++){
+            strChange += `${keys[i]}`;
+
+            if(i < numChange - 1){
+                strChange += `\n`;
+            }
+        }
+        
+        return strChange;
+    }
 
     //Command: git add <filename/file directory/wildcard> 
     add(path_file){
